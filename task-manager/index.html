@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Runner - Arcade Shooter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <!-- UI Overlays -->
+        <div id="mainMenu" class="overlay">
+            <h1>STAR RUNNER</h1>
+            <div class="menu-buttons">
+                <button id="startBtn">Start Game</button>
+                <button id="settingsBtn">Settings</button>
+                <button id="scoresBtn">High Scores</button>
+            </div>
+        </div>
+
+        <div id="gameHUD" class="overlay hidden">
+            <div class="hud-top">
+                <div>Score: <span id="scoreDisplay">0</span></div>
+                <div>Level: <span id="levelDisplay">1</span></div>
+                <div>Lives: <span id="livesDisplay">3</span></div>
+            </div>
+            <div class="hud-powerups">
+                <div id="powerupStatus"></div>
+            </div>
+        </div>
+
+        <div id="settingsMenu" class="overlay hidden">
+            <h2>Settings</h2>
+            <div class="settings-options">
+                <label>
+                    Sound: <input type="checkbox" id="soundToggle" checked>
+                </label>
+                <label>
+                    Difficulty: 
+                    <select id="difficultySelect">
+                        <option value="easy">Easy</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </label>
+            </div>
+            <button id="settingsBackBtn">Back</button>
+        </div>
+
+        <div id="scoresMenu" class="overlay hidden">
+            <h2>High Scores</h2>
+            <div id="highScoresList"></div>
+            <button id="scoresBackBtn">Back</button>
+        </div>
+
+        <div id="gameOverScreen" class="overlay hidden">
+            <h2>Game Over</h2>
+            <div>Final Score: <span id="finalScore">0</span></div>
+            <input type="text" id="playerName" placeholder="Enter your name" maxlength="10">
+            <div class="menu-buttons">
+                <button id="submitScoreBtn">Submit Score</button>
+                <button id="playAgainBtn">Play Again</button>
+                <button id="mainMenuBtn">Main Menu</button>
+            </div>
+        </div>
+
+        <div id="pauseMenu" class="overlay hidden">
+            <h2>Paused</h2>
+            <div class="menu-buttons">
+                <button id="resumeBtn">Resume</button>
+                <button id="pauseMenuBtn">Main Menu</button>
+            </div>
+        </div>
+
+        <!-- Game Canvas -->
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+    </div>
+
+    <!-- Main Script -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
