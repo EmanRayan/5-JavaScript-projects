@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Runner - Space Shooter Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0c0c2c, #000000);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .game-container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 150, 255, 0.5);
+            border: 2px solid #0066cc;
+        }
+
+        h1 {
+            color: #00aaff;
+            text-shadow: 0 0 10px #00aaff;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        canvas {
+            border: 3px solid #0088ff;
+            border-radius: 10px;
+            background: #000011;
+            box-shadow: 
+                0 0 20px rgba(0, 136, 255, 0.3),
+                inset 0 0 20px rgba(0, 0, 50, 0.5);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .controls {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 50, 100, 0.3);
+            border-radius: 10px;
+            border: 1px solid #0066cc;
+        }
+
+        .controls h3 {
+            color: #00ccff;
+            margin-bottom: 10px;
+        }
+
+        .controls p {
+            margin: 5px 0;
+            color: #cccccc;
+        }
+
+        .power-ups {
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            text-align: left;
+        }
+
+        .power-up {
+            padding: 8px;
+            background: rgba(0, 100, 150, 0.2);
+            border-radius: 5px;
+            border: 1px solid #0088cc;
+        }
+
+        .power-up strong {
+            color: #00ff88;
+        }
+
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #00aaff;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        .loading {
+            animation: pulse 1.5s infinite;
+        }
+
+        @media (max-width: 900px) {
+            .game-container {
+                padding: 10px;
+                margin: 10px;
+            }
+            
+            canvas {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>⭐ STAR RUNNER ⭐</h1>
+        
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div class="controls">
+            <h3>🎮 Controls</h3>
+            <p><strong>Arrow Keys:</strong> Move your ship</p>
+            <p><strong>Space Bar:</strong> Shoot / Start Game</p>
+            
+            <div class="power-ups">
+                <div class="power-up">
+                    <strong>Health (+):</strong> Restore health
+                </div>
+                <div class="power-up">
+                    <strong>Rapid Fire (R):</strong> Faster shooting
+                </div>
+                <div class="power-up">
+                    <strong>Multi-Shot (M):</strong> Triple bullets
+                </div>
+                <div class="power-up">
+                    <strong>Shield (S):</strong> Temporary invincibility
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

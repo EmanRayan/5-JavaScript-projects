@@ -1,0 +1,274 @@
+{
+  "levels": {
+    "1": {
+      "id": 1,
+      "name": "Asteroid Field",
+      "description": "Navigate through dangerous asteroids and defeat basic enemies",
+      "background": "space",
+      "music": "level1_theme.mp3",
+      "waves": [
+        {
+          "id": 1,
+          "type": "basic",
+          "count": 5,
+          "interval": 2.0,
+          "formation": "line",
+          "powerUpChance": 0.1,
+          "spawnPattern": "sequential"
+        },
+        {
+          "id": 2,
+          "type": "basic",
+          "count": 8,
+          "interval": 1.5,
+          "formation": "diamond",
+          "powerUpChance": 0.15,
+          "spawnPattern": "random"
+        },
+        {
+          "id": 3,
+          "type": "fast",
+          "count": 3,
+          "interval": 3.0,
+          "formation": "v-formation",
+          "powerUpChance": 0.2,
+          "spawnPattern": "formation"
+        }
+      ],
+      "powerUps": ["rapidFire", "multiShot"],
+      "difficulty": 1.0,
+      "requiredScore": 0,
+      "timeLimit": null,
+      "specialRules": []
+    },
+    "2": {
+      "id": 2,
+      "name": "Enemy Squadron",
+      "description": "Face organized enemy forces with advanced tactics",
+      "background": "nebula",
+      "music": "level2_theme.mp3",
+      "waves": [
+        {
+          "id": 1,
+          "type": "basic",
+          "count": 10,
+          "interval": 1.0,
+          "formation": "line",
+          "powerUpChance": 0.08,
+          "spawnPattern": "wave"
+        },
+        {
+          "id": 2,
+          "type": "fast",
+          "count": 5,
+          "interval": 2.0,
+          "formation": "diamond",
+          "powerUpChance": 0.12,
+          "spawnPattern": "flanking"
+        },
+        {
+          "id": 3,
+          "type": "basic",
+          "count": 15,
+          "interval": 0.8,
+          "formation": "v-formation",
+          "powerUpChance": 0.18,
+          "spawnPattern": "swarm"
+        }
+      ],
+      "powerUps": ["rapidFire", "multiShot", "health"],
+      "difficulty": 1.5,
+      "requiredScore": 500,
+      "timeLimit": 300,
+      "specialRules": ["fastEnemies"]
+    },
+    "3": {
+      "id": 3,
+      "name": "Boss Battle",
+      "description": "Ultimate challenge against the mothership boss",
+      "background": "boss_arena",
+      "music": "boss_theme.mp3",
+      "waves": [
+        {
+          "id": 1,
+          "type": "basic",
+          "count": 5,
+          "interval": 1.5,
+          "formation": "line",
+          "powerUpChance": 0.15,
+          "spawnPattern": "escort"
+        },
+        {
+          "id": 2,
+          "type": "fast",
+          "count": 3,
+          "interval": 2.0,
+          "formation": "diamond",
+          "powerUpChance": 0.2,
+          "spawnPattern": "support"
+        },
+        {
+          "id": 3,
+          "type": "boss",
+          "count": 1,
+          "interval": 5.0,
+          "formation": "single",
+          "powerUpChance": 0.3,
+          "spawnPattern": "boss_entrance"
+        }
+      ],
+      "powerUps": ["rapidFire", "multiShot", "health"],
+      "difficulty": 2.0,
+      "requiredScore": 1500,
+      "timeLimit": 600,
+      "specialRules": ["bossPhases", "continuousSpawn"]
+    },
+    "4": {
+      "id": 4,
+      "name": "Nightmare Mode",
+      "description": "Only for the most skilled pilots",
+      "background": "void",
+      "music": "nightmare_theme.mp3",
+      "waves": [
+        {
+          "id": 1,
+          "type": "fast",
+          "count": 20,
+          "interval": 0.5,
+          "formation": "swarm",
+          "powerUpChance": 0.05,
+          "spawnPattern": "chaos"
+        },
+        {
+          "id": 2,
+          "type": "boss",
+          "count": 2,
+          "interval": 3.0,
+          "formation": "dual",
+          "powerUpChance": 0.25,
+          "spawnPattern": "synchronized"
+        }
+      ],
+      "powerUps": ["rapidFire", "multiShot", "health"],
+      "difficulty": 3.0,
+      "requiredScore": 3000,
+      "timeLimit": 180,
+      "specialRules": ["doubleSpeed", "limitedPowerUps", "bossRush"]
+    }
+  },
+  "powerUpDefinitions": {
+    "rapidFire": {
+      "name": "Rapid Fire",
+      "description": "Increases firing rate significantly",
+      "duration": 10,
+      "effect": "fireRate",
+      "multiplier": 0.5,
+      "stackable": false
+    },
+    "multiShot": {
+      "name": "Multi Shot",
+      "description": "Fires three projectiles instead of one",
+      "duration": 10,
+      "effect": "projectileCount",
+      "multiplier": 3,
+      "stackable": false
+    },
+    "health": {
+      "name": "Health Boost",
+      "description": "Restores one health point",
+      "duration": 0,
+      "effect": "heal",
+      "multiplier": 1,
+      "stackable": true
+    },
+    "shield": {
+      "name": "Energy Shield",
+      "description": "Temporary invulnerability",
+      "duration": 5,
+      "effect": "invulnerability",
+      "multiplier": 1,
+      "stackable": false
+    },
+    "speedBoost": {
+      "name": "Speed Boost",
+      "description": "Increases movement speed",
+      "duration": 8,
+      "effect": "speed",
+      "multiplier": 1.5,
+      "stackable": false
+    }
+  },
+  "enemyDefinitions": {
+    "basic": {
+      "name": "Basic Fighter",
+      "health": 1,
+      "speed": 100,
+      "points": 100,
+      "color": "#ff4444",
+      "behavior": "straight",
+      "shootPattern": "none"
+    },
+    "fast": {
+      "name": "Fast Interceptor",
+      "health": 1,
+      "speed": 200,
+      "points": 200,
+      "color": "#ffaa00",
+      "behavior": "zigzag",
+      "shootPattern": "none"
+    },
+    "boss": {
+      "name": "Mothership",
+      "health": 10,
+      "speed": 50,
+      "points": 1000,
+      "color": "#aa00ff",
+      "behavior": "boss_pattern",
+      "shootPattern": "spread"
+    },
+    "heavy": {
+      "name": "Heavy Cruiser",
+      "health": 3,
+      "speed": 75,
+      "points": 300,
+      "color": "#ff6600",
+      "behavior": "tank",
+      "shootPattern": "single"
+    }
+  },
+  "gameSettings": {
+    "canvas": {
+      "width": 800,
+      "height": 600
+    },
+    "player": {
+      "startingLives": 3,
+      "invulnerabilityTime": 2.0,
+      "baseSpeed": 300,
+      "baseFireRate": 0.2
+    },
+    "scoring": {
+      "enemyMultiplier": 1.0,
+      "timeBonus": 10,
+      "accuracyBonus": 50,
+      "noHitBonus": 500
+    },
+    "difficulty": {
+      "easy": {
+        "enemySpeedMultiplier": 0.8,
+        "playerSpeedMultiplier": 1.2,
+        "powerUpChanceMultiplier": 1.5
+      },
+      "normal": {
+        "enemySpeedMultiplier": 1.0,
+        "playerSpeedMultiplier": 1.0,
+        "powerUpChanceMultiplier": 1.0
+      },
+      "hard": {
+        "enemySpeedMultiplier": 1.3,
+        "playerSpeedMultiplier": 0.9,
+        "powerUpChanceMultiplier": 0.7
+      }
+    }
+  }
+}
